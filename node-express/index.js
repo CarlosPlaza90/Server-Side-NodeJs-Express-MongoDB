@@ -9,9 +9,13 @@ const port = 3000;
 
 const app = express();
 const dishRouter = require('./routes/dishRouter');
+const leaderRouter = require('./routes/leaderRouter');
+const promoRouter = require('./routes/promoRouter');
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use('/dishes', dishRouter);
+app.use('/leader', leaderRouter);
+app.use('/promo', promoRouter);
 
 app.all('/dishes', (req, res, next) => {
     res.statusCode = 200;
