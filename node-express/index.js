@@ -8,8 +8,10 @@ const hostname = 'localhost';
 const port = 3000;
 
 const app = express();
+const dishRouter = require('./routes/dishRouter');
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use('/dishes', dishRouter);
 
 app.all('/dishes', (req, res, next) => {
     res.statusCode = 200;
